@@ -2,14 +2,14 @@ from datetime import datetime
 
 import pytest
 
-from krxreader.calendar import holiday_info
-from krxreader.calendar import now
-from krxreader.calendar import is_weekend
-from krxreader.calendar import is_holiday
-from krxreader.calendar import is_closing_day
-from krxreader.calendar import is_trading_day
-from krxreader.calendar import trading_date
-from krxreader import fetch
+from krxfetch.calendar import holiday_info
+from krxfetch.calendar import now
+from krxfetch.calendar import is_weekend
+from krxfetch.calendar import is_holiday
+from krxfetch.calendar import is_closing_day
+from krxfetch.calendar import is_trading_day
+from krxfetch.calendar import trading_date
+from krxfetch import fetch
 
 
 def test_holiday_info():

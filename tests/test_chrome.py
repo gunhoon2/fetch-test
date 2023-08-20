@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from krxreader.chrome import release_schedule
-from krxreader.chrome import unified_platform
-from krxreader.chrome import major_version
-from krxreader.chrome import user_agent
+from krxfetch.chrome import release_schedule
+from krxfetch.chrome import unified_platform
+from krxfetch.chrome import major_version
+from krxfetch.chrome import user_agent
 
 
 def test_release_schedule():

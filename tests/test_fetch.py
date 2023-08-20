@@ -1,10 +1,10 @@
 import pytest
 
-from krxreader.chrome import major_version
-from krxreader.fetch import common_headers
-from krxreader.fetch import holiday_info
-from krxreader.fetch import get_json_data
-from krxreader.fetch import download_csv
+from krxfetch.chrome import major_version
+from krxfetch.fetch import common_headers
+from krxfetch.fetch import holiday_info
+from krxfetch.fetch import get_json_data
+from krxfetch.fetch import download_csv
 
 
 @pytest.fixture
