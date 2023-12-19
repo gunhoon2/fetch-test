@@ -21,9 +21,9 @@ def test_holiday_info():
 
     info = holiday_info(2023)
 
-    assert len(info) == 14
+    assert len(info) == 15
     assert info[0] == '2023-01-23'
-    assert info[13] == '2023-12-29'
+    assert info[14] == '2023-12-29'
 
     info = holiday_info(2024)
 
