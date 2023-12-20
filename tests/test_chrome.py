@@ -24,7 +24,7 @@ def test_unified_platform():
 
 
 def test_major_version():
-    # assert major_version() == 114
+    # assert major_version() == 120
 
     dt1 = datetime.fromisoformat('2023-05-30 23:59:59.283')
     assert major_version(dt1) == 113
@@ -38,7 +38,7 @@ def test_major_version():
     dt4 = datetime.fromisoformat('2023-07-19 00:00:00.000')
     assert major_version(dt4) == 115
 
-    dt5 = datetime.fromisoformat('2025-02-05 23:59:59.283')
+    dt5 = datetime.fromisoformat('2025-01-29 23:59:59.283')
     assert major_version(dt5) == 133
 
     dt6 = datetime.fromisoformat('2023-01-11 00:00:00.000')
@@ -47,8 +47,11 @@ def test_major_version():
     dt7 = datetime.fromisoformat('2023-01-10 23:59:59.283')
     assert major_version(dt7) == 100
 
-    dt8 = datetime.fromisoformat('2000-01-01 23:59:59.283')
+    dt8 = datetime.fromisoformat('2000-01-01 00:00:00.000')
     assert major_version(dt8) == 100
+
+    dt9 = datetime.fromisoformat('2030-12-31 23:59:59.283')
+    assert major_version(dt9) == 133
 
 
 def test_user_agent():

@@ -7,21 +7,21 @@ def release_schedule() -> tuple:
     https://chromiumdash.appspot.com/schedule
     """
     schedule = (
-        ('Feb 4, 2025', 133),
-        ('Jan 7, 2025', 132),
-        ('Nov 19, 2024', 131),
-        ('Oct 22, 2024', 130),
-        ('Sep 24, 2024', 129),
-        ('Aug 27, 2024', 128),
-        ('Jul 30, 2024', 127),
-        ('Jun 18, 2024', 126),
-        ('May 21, 2024', 125),
-        ('Apr 23, 2024', 124),
-        ('Mar 26, 2024', 123),
-        ('Feb 27, 2024', 122),
-        ('Jan 30, 2024', 121),
-        ('Jan 2, 2024', 120),
-        ('Nov 7, 2023', 119),
+        ('Jan 28, 2025', 133),
+        ('Dec 17, 2024', 132),
+        ('Nov 12, 2024', 131),
+        ('Oct 15, 2024', 130),
+        ('Sep 17, 2024', 129),
+        ('Aug 20, 2024', 128),
+        ('Jul 23, 2024', 127),
+        ('Jun 11, 2024', 126),
+        ('May 14, 2024', 125),
+        ('Apr 16, 2024', 124),
+        ('Mar 19, 2024', 123),
+        ('Feb 20, 2024', 122),
+        ('Jan 23, 2024', 121),
+        ('Dec 5, 2023', 120),
+        ('Oct 31, 2023', 119),
         ('Oct 10, 2023', 118),
         ('Sep 12, 2023', 117),
         ('Aug 15, 2023', 116),
@@ -55,7 +55,7 @@ def major_version(now: datetime.datetime | None = None) -> int:
     """Major version of Chrome Browser"""
 
     if now is None:
-        now = datetime.datetime.utcnow()
+        now = datetime.datetime.now(datetime.timezone.utc)
 
     schedule = release_schedule()
     version = 100

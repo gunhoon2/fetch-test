@@ -38,13 +38,13 @@ def test_common_headers():
         assert headers['referer'] == referer
 
 
-@pytest.mark.skipif(True, reason='requires http request')
+@pytest.mark.skipif(False, reason='requires http request')
 def test_holiday_info():
     info_list = holiday_info(2023)
 
-    assert len(info_list) == 14
+    assert len(info_list) == 15
     assert info_list[0] == '2023-01-23'
-    assert info_list[13] == '2023-12-29'
+    assert info_list[14] == '2023-12-29'
 
 
 @pytest.mark.skipif(False, reason='requires http request')
