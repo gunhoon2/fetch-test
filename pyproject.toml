@@ -1,6 +1,10 @@
 [project]
 name = "krxfetch"
-version = "2023.1"
+version = "2023.2"
+description = "KRXFetch is a core library for scraping financial data from the KRX(Korea Exchange) Market Data System."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
 authors = [
   { name="Gunhoon Lee", email="gunhoon@gmail.com" },
 ]
