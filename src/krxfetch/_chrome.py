@@ -1,7 +1,7 @@
 import datetime
 
 
-def release_schedule() -> tuple:
+def _release_schedule() -> tuple:
     """Chromium release schedule
 
     https://chromiumdash.appspot.com/schedule
@@ -37,7 +37,24 @@ def release_schedule() -> tuple:
     return schedule
 
 
-def unified_platform() -> str:
+def _major_version(now: datetime.datetime | None = None) -> int:
+    """Major version of Chrome Browser"""
+
+    if now is None:
+        now = datetime.datetime.now(datetime.timezone.utc)
+
+    schedule = _release_schedule()
+    version = schedule[len(schedule)-1][1] - 1
+
+    for item in schedule:
+        if now.date() > datetime.datetime.strptime(item[0], '%b %d, %Y').date():
+            version = item[1]
+            break
+
+    return version
+
+
+def _unified_platform() -> str:
     """platform part of user-agent
 
     macOS:   'Macintosh; Intel Mac OS X 10_15_7'
@@ -51,30 +68,13 @@ def unified_platform() -> str:
     return platform
 
 
-def major_version(now: datetime.datetime | None = None) -> int:
-    """Major version of Chrome Browser"""
-
-    if now is None:
-        now = datetime.datetime.now(datetime.timezone.utc)
-
-    schedule = release_schedule()
-    version = 100
-
-    for item in schedule:
-        if now.date() > datetime.datetime.strptime(item[0], '%b %d, %Y').date():
-            version = item[1]
-            break
-
-    return version
-
-
 def user_agent(major_ver: int | None = None) -> str:
     """Return the user-agent of Chrome Browser"""
 
     if major_ver is None:
-        major_ver = major_version()
+        major_ver = _major_version()
 
     agent = 'Mozilla/5.0 ({}) AppleWebKit/537.36 (KHTML, like Gecko) ' \
             'Chrome/{}.0.0.0 Safari/537.36'
 
-    return agent.format(unified_platform(), major_ver)
+    return agent.format(_unified_platform(), major_ver)

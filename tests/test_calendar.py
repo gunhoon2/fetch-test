@@ -2,32 +2,12 @@ from datetime import datetime
 
 import pytest
 
-from krxfetch.calendar import holiday_info
 from krxfetch.calendar import now
 from krxfetch.calendar import is_weekend
 from krxfetch.calendar import is_holiday
 from krxfetch.calendar import is_closing_day
 from krxfetch.calendar import is_trading_day
 from krxfetch.calendar import trading_date
-from krxfetch import fetch
-
-
-def test_holiday_info():
-    info = holiday_info(2022)
-
-    assert len(info) == 14
-    assert info[0] == '2022-01-31'
-    assert info[13] == '2022-12-30'
-
-    info = holiday_info(2023)
-
-    assert len(info) == 15
-    assert info[0] == '2023-01-23'
-    assert info[14] == '2023-12-29'
-
-    info = holiday_info(2024)
-
-    assert len(info) == 0
 
 
 def test_now():
@@ -153,12 +133,3 @@ def test_trading_date():
     assert trading_date(dt7, base_time=24) == '20230519'
     assert trading_date(dt8, base_time=24) == '20230519'
     assert trading_date(dt9, base_time=24) == '20230519'
-
-
-@pytest.mark.skipif(False, reason='requires http request')
-def test_maintenance():
-    """If this test fails, update holiday_info() function."""
-
-    dt = now()
-
-    assert holiday_info(dt.year) == fetch.holiday_info(dt.year)

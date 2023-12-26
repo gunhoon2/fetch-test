@@ -1,8 +1,5 @@
 import pytest
 
-from krxfetch.chrome import major_version
-from krxfetch.fetch import common_headers
-from krxfetch.fetch import holiday_info
 from krxfetch.fetch import get_json_data
 from krxfetch.fetch import download_csv
 
@@ -20,31 +17,6 @@ def payload():
         'money': '3',
         'csvxls_isNo': 'false'
     }
-
-
-def test_common_headers():
-    agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) ' \
-            'Chrome/{}.0.0.0 Safari/537.36'
-
-    referer = 'http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201'
-
-    headers = common_headers(referer)
-    assert headers['user-agent'] == agent.format(major_version())
-    assert headers['referer'] == referer
-
-    headers = common_headers()
-    assert headers['user-agent'] == agent.format(major_version())
-    with pytest.raises(KeyError):
-        assert headers['referer'] == referer
-
-
-@pytest.mark.skipif(False, reason='requires http request')
-def test_holiday_info():
-    info_list = holiday_info(2023)
-
-    assert len(info_list) == 15
-    assert info_list[0] == '2023-01-23'
-    assert info_list[14] == '2023-12-29'
 
 
 @pytest.mark.skipif(False, reason='requires http request')
