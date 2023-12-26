@@ -1,6 +1,6 @@
 [project]
 name = "krxfetch"
-version = "0.0.0"
+version = "2023.1"
 authors = [
   { name="Gunhoon Lee", email="gunhoon@gmail.com" },
 ]
