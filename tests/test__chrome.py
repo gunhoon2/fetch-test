@@ -22,32 +22,29 @@ def test__release_schedule():
 def test__major_version():
     # assert _major_version() == 120
 
-    dt1 = datetime.fromisoformat('2023-05-30 23:59:59.283')
-    assert _major_version(dt1) == 113
+    dt1 = datetime.fromisoformat('2030-12-31 23:59:59.283')
+    assert _major_version(dt1) == 133
 
-    dt2 = datetime.fromisoformat('2023-05-31 00:00:00.000')
-    assert _major_version(dt2) == 114
+    dt2 = datetime.fromisoformat('2025-01-29 00:00:00.000')
+    assert _major_version(dt2) == 133
 
-    dt3 = datetime.fromisoformat('2023-07-18 23:59:59.283')
-    assert _major_version(dt3) == 114
+    dt3 = datetime.fromisoformat('2025-01-28 23:59:59.283')
+    assert _major_version(dt3) == 132
 
-    dt4 = datetime.fromisoformat('2023-07-19 00:00:00.000')
-    assert _major_version(dt4) == 115
+    dt4 = datetime.fromisoformat('2024-08-21 00:00:00.000')
+    assert _major_version(dt4) == 128
 
-    dt5 = datetime.fromisoformat('2025-01-29 23:59:59.283')
-    assert _major_version(dt5) == 133
+    dt5 = datetime.fromisoformat('2024-08-20 23:59:59.283')
+    assert _major_version(dt5) == 127
 
-    dt6 = datetime.fromisoformat('2023-01-11 00:00:00.000')
-    assert _major_version(dt6) == 109
+    dt6 = datetime.fromisoformat('2023-12-06 00:00:00.000')
+    assert _major_version(dt6) == 120
 
-    dt7 = datetime.fromisoformat('2023-01-10 23:59:59.283')
-    assert _major_version(dt7) == 108
+    dt7 = datetime.fromisoformat('2023-12-05 23:59:59.283')
+    assert _major_version(dt7) == 119
 
     dt8 = datetime.fromisoformat('2000-01-01 00:00:00.000')
-    assert _major_version(dt8) == 108
-
-    dt9 = datetime.fromisoformat('2030-12-31 23:59:59.283')
-    assert _major_version(dt9) == 133
+    assert _major_version(dt8) == 119
 
 
 def test__unified_platform():
